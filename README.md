@@ -9,26 +9,53 @@ Q1. Find Number of Selective Arrangements...
 ```cpp
 // A Naive Recursive C++ program
 // to count derangements
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int countDer(int n)
+//By Recursion
+// int solve(int n){
+//   if(n == 1) return 0;
+//   if(n == 2) return 1;
+  
+//   return (n-1) * (solve(n-1) + solve(n-2));
+// }
+int main() 
 {
-// Base cases
-if (n == 1) return 0;
-if (n == 2) return 1;
-
-// countDer(n) = (n-1)[countDer(n-1) + der(n-2)]
-return (n - 1) * (countDer(n - 1) + countDer(n - 2));
-}
-
-// Driver Code
-int main()
-{
-	int n = 4;
-	cout << "Count of Derangements is "
-		<< countDer(n);
-	return 0;
+    // int n;
+    // cin>>n;
+    // cout <<solve(n);
+    
+    
+    // By Dynamic Programming.. [Where:: Time Complexity == O(n) & Space Complexity == O(n)]
+    // int n;
+    // cin>>n;
+    // int dp[n + 1] = {0};
+    // dp[1]=0;
+    // dp[2]=1;
+    // for(int i=3;i<=n;i++)
+    //   dp[i]=(i-1)*(dp[i-1]+dp[i-2]);
+      
+    // cout<<dp[n];
+    
+    
+    
+    // By Dynamic Programming But Optimized Solution.. [Where:: Time Complexity == O(n) & Space Complexity == O(1)]
+    int n;
+    cin>>n;
+    int dp[n + 1] = {0};
+    
+    int a = 0; //dp[1] replaced by a;
+    int b = 1; //dp[2] replaced by b;
+    
+    for(int i=3;i<=n;++i){
+      int temp = (i-1) * (b+a);
+      a = b;
+      b = temp;
+    }
+    
+    cout<<b;
+    
+    return 0;
 }
 
 ```
