@@ -14,8 +14,8 @@ using namespace std;
 
 //By Recursion
 // int solve(int n){
-//   if(n == 1) return 0;
-//   if(n == 2) return 1;
+//   if(n == 1) return 0;  // Base Case -- Cause: if we take n = {0} then possibilities = 0
+//   if(n == 2) return 1;  // Base Case -- Cause: if we take n = {0, 1} then possibilities = 1
   
 //   return (n-1) * (solve(n-1) + solve(n-2));
 // }
